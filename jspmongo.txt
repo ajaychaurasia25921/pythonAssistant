@@ -1,0 +1,17 @@
+<%@page import="com.mongodb.DBCursor"%>
+<%@page import="com.mongodb.BasicDBObject"%>
+<%@page import="com.mongodb.DBObject"%>
+<%@page import="com.mongodb.DBCollection"%>
+<%@page import="com.mongodb.DB"%>
+<%@page import="com.mongodb.Mongo"%>
+<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%
+  	Mongo mg = new Mongo("localhost", 27017);
+  	DB db = mg.getDB("test");
+	DBCollection collection = db.getCollection("user");
+	BasicDBObject me = new BasicDBObject();
+	me.put("id", 132);
+	collection.insert(me);
+	DBCursor cursor = collection.find();
+	System.out.println(cursor.next());
+%>

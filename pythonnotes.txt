@@ -1,0 +1,61 @@
+ListBox:-
+lb = ListBox (win,height=20,width=94)
+lb.grid(row=2,column=0,columnspan=6)
+
+for row in range(10):
+	lb.insert(END,row)
+
+ls=["Amit","Rahul","Raghu"]
+
+Slider:-
+
+A slider is an object with which a user can set a value by moving an indicator slider can be draw vertically and horizontally it can be created by scale method.
+from tkinter import *
+root = Tk()
+w=Scale(root,from_ =0,to=40)
+w.pack()
+w1=Scale(root,from_=0,to=200,orient=HORIZONTAL)
+w1.pack()
+root.mainloop()
+
+
+from tkinter import *
+root = Tk()
+var=IntVar()
+var.set(0)
+def show value():
+	a=var.get()
+w=Scale(root,from_ =0,to=200,variable=var,tick_interval=10)
+w.pack()
+b1=Button(root,text="Submit",command=showvalue)
+b1.pack()
+root.mainloop()
+
+ScrollBar-
+It is a slider which is we connect with listbox, textview and others.To connect a vertical scrollbar you have to do two things
+1.set the visible widget yscroll command callback to the set method of the scrollbars
+2.Set the scrollbars command to the yview method of the widget
+
+Example:-
+
+from tkinter import *
+root=Tk()
+scrollbar = Scrollbar(root)
+scrollbar.pack(side=RIGHT,Fill=Y)
+mylist=Listbox(root,yscroll command=scrollbar.set)
+for i in range(100):
+mylist.insert(END,"Number"+str(i))
+mylist.pack(side=LEFT,fill=BOTH)
+scrollbar.config(command=mylist.yview)
+root.mainloop()
+
+Canvas:-
+The canvas is a rectangular area for intended for drawing pictures or other complex layout you can place graphics, text, widgets or frames on a canvas
+
+Example:- from tkinter import *
+root = Tk()
+C=canvas(root, bg='blue',height=250,width=300)
+coord=(10,50,240,210)
+arc=c.create-arc(coord,start=0,extent=150,fill=red)
+c.pack()
+root.mainloop()
